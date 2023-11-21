@@ -8,6 +8,7 @@ import 'package:peanut/app/widgets/custom_btn.dart';
 
 import '../core/config/theme/color.dart';
 import '../core/config/theme/style.dart';
+import '../routes/app_pages.dart';
 
 class PopupDialog {
   // AlertDialog
@@ -124,7 +125,7 @@ class PopupDialog {
                             width: double.infinity,
                             child: const Text("Yes"),
                             onPressed: () {
-                              // Get.offAllNamed(Routes.LOGIN);
+                              Get.offAllNamed(Routes.LOGIN);
                             },
                           ),
                           16.height,

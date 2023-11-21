@@ -21,7 +21,6 @@ class ApplicationController extends GetxController {
     const Icon(Icons.home_filled,color: kWhite,),
     const Icon(Icons.wallet_giftcard,color: kWhite,),
     const Icon(Icons.person,color: kWhite,),
-
   ];
 
   void onChangePageIndex(int index) {

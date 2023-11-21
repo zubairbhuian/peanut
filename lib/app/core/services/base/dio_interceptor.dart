@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
@@ -10,15 +9,16 @@ class DioInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     /// add token to header if user is logged in
-    final token = Preferences.token;
-    if (token.isNotEmpty) {
-      // options.headers['access-token'] =token;
-      options.headers['Authorization'] = 'Bearer $token';
-    }
+    // final token = Preferences.token;   // ? this is not necessary vor this project
+    // if (token.isNotEmpty) {
+    //   // options.headers['access-token'] =token;
+    //   options.headers['Authorization'] = 'Bearer $token';
 
+    // }
+     
     /// set options
-    options.validateStatus = (_) => true;
-    options.receiveDataWhenStatusError = true;
+    // options.validateStatus = (_) => true;
+    // options.receiveDataWhenStatusError = true;
     options.responseType = ResponseType.json;
 
     if (kDebugMode) {
@@ -60,4 +60,10 @@ class DioInterceptor extends Interceptor {
     }
     super.onError(err, handler);
   }
+}
+
+Dio dio = Dio();
+
+demo() {
+  dio.post("",data: {});
 }

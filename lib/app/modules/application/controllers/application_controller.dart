@@ -10,7 +10,7 @@ import '../../../core/config/theme/style.dart';
 class ApplicationController extends GetxController {
   static ApplicationController get to => Get.find();
 
-  int pageIndex = 1;
+  int pageIndex = 2;
   final PageController pageController = PageController();
   final List<Widget> pagesList = [
     const HomeView(),

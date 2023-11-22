@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:peanut/app/core/config/theme/color.dart';
 import 'package:peanut/app/core/config/theme/style.dart';
 import 'package:peanut/app/core/utils/int_extensions.dart';
 import 'package:peanut/app/modules/login/widgets/login_form.dart';
 import 'package:peanut/app/widgets/custom_btn.dart';
-import 'package:peanut/app/widgets/custom_textfield.dart';
-
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {

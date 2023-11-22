@@ -1,23 +1,23 @@
 import 'package:get/get.dart';
+import 'package:peanut/app/core/config/theme/style.dart';
+import 'package:peanut/app/core/services/base/preferences.dart';
+import 'package:peanut/app/data/models/trade/trade_model.dart';
+import 'package:peanut/app/data/repository/trade_repo.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
+  static HomeController get to => Get.find();
 
-  final count = 0.obs;
+  List<TradeModel> tradeList = [];
+
+  getTradeList() async {
+    tradeList = await TradeRepo.getTrades(
+        id: Preferences.userId, token: Preferences.token);
+    // kLogger.i(tradeList[0].currentPrice);
+  }
+
   @override
   void onInit() {
+    getTradeList();
     super.onInit();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

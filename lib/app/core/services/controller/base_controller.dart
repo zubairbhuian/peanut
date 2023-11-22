@@ -13,10 +13,10 @@ class BaseController extends GetxController {
 
   bool get isFirstTime => Preferences.isFirstTime;
 
+
   set isFirstTime(bool isFirstTime) => Preferences.isFirstTime = isFirstTime;
 
   bool get isLoggedIn => Preferences.token.isNotEmpty;
-
   set token(String token) => Preferences.token = token;
 
   void logout() {

@@ -1,23 +1,34 @@
+import 'dart:convert';
+
 import 'package:get/get.dart';
+import 'package:peanut/app/core/config/theme/style.dart';
+import 'package:peanut/app/core/services/base/preferences.dart';
+import 'package:peanut/app/core/services/urls.dart';
+import 'package:peanut/app/data/models/user/user_data_model.dart';
+import 'package:peanut/app/data/repository/user_info_repo.dart';
+import 'package:http/http.dart' as http;
 
 class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+  static ProfileController get to => Get.find();
 
-  final count = 0.obs;
+  UserDataModel? userData;
+  String phoneNumber = '';
+
+  getUserAlldata() async {
+    // get user info
+    userData = await UserInfoRepo.getUserInfo(
+        id: Preferences.userId, token: Preferences.token);
+    // get user phone
+    // phoneNumber = await UserInfoRepo.getLastFourNumbersPhone(
+    //     id: Preferences.userId, token: Preferences.token);
+
+    update();
+    kLogger.e(phoneNumber);
+  }
+
   @override
   void onInit() {
+    getUserAlldata();
     super.onInit();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

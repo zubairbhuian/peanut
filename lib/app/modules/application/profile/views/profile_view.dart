@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:peanut/app/core/services/base/preferences.dart';
 import 'package:peanut/app/core/services/controller/base_controller.dart';
+import 'package:peanut/app/widgets/app_indecator.dart';
 import 'package:peanut/app/widgets/custom_btn.dart';
 import 'package:peanut/app/widgets/popup_dialogs.dart';
 
@@ -17,15 +18,18 @@ class ProfileView extends GetView<ProfileController> {
         title: const Text('ProfileView'),
         centerTitle: true,
       ),
-      body: Center(
-        child: PrimaryBtn(
-          child: const Text("LogOut"),
-          onPressed: () {
-            PopupDialog.logOutDialog();
-            
-          },
-        ),
-      ),
+      body: GetBuilder<ProfileController>(builder: (controller) {
+        var data = controller.userData;
+        if (data == null) return const Center(child: AppIndecator());
+        return Center(
+          child: PrimaryBtn(
+            child: const Text("LogOut"),
+            onPressed: () {
+              PopupDialog.logOutDialog();
+            },
+          ),
+        );
+      }),
     );
   }
 }

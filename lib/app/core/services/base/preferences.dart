@@ -8,6 +8,7 @@ class Preferences {
   static const String KEY_IS_FIRST_TIME = 'is_first_time';
 
   static const String KEY_TOKEN = 'token';
+  static const String USER_ID = 'user_id';
   static const String KEY_IS_ACTIVER_EXPERT = 'is_active_Expert';
 
   // bool isActiveExpert = false;
@@ -21,6 +22,10 @@ class Preferences {
  /// token
   static String get token => preferences.getString(KEY_TOKEN) ?? '';
   static set token(String value) => preferences.setString(KEY_TOKEN, value);
+
+  /// user id
+  static String get userId => preferences.getString(USER_ID) ?? '';
+  static set userId(String value) => preferences.setString(USER_ID, value);
  /// isActiveExpert
  static bool get isActiveExpert => preferences.getBool(KEY_IS_ACTIVER_EXPERT) ?? false;
  static set isActiveExpert(bool value) => preferences.setBool(KEY_IS_ACTIVER_EXPERT, value);

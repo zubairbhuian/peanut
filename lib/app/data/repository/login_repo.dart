@@ -6,16 +6,16 @@ import 'package:peanut/app/widgets/popup_dialogs.dart';
 import '../models/base/base_model.dart';
 
 class LoginRepo {
- static Future<bool> login({required String id, required String pass}) async {
+  static Future<bool> login({required String id, required String pass}) async {
     /// data
     Map<String, dynamic> data = {"login": id, "password": pass};
     try {
-      // start loading
+      // **** start loading *****
       PopupDialog.showLoadingDialog();
-      // api call
+      // **** api call ****
       BaseModel res =
           await BaseController.to.apiService.makePostRequest(Urls.login, data);
-      // hide loading
+      // **** hide loading ****
       PopupDialog.closeLoadingDialog();
       if (res.statusCode == 200) {
         return true;

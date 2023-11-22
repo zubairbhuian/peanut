@@ -14,19 +14,12 @@ class ApplicationController extends GetxController {
   final PageController pageController = PageController();
   final List<Widget> pagesList = [
     const HomeView(),
-    const ProfileView(),
     const ProfitView(),
+    const ProfileView(),
   ];
   final List<Widget> iconList = [
     const Icon(Icons.home_filled,color: kWhite,),
     const Icon(Icons.wallet_giftcard,color: kWhite,),
     const Icon(Icons.person,color: kWhite,),
   ];
-
-  void onChangePageIndex(int index) {
-    pageIndex = index;
-    update();
-    kLogger.e(pageIndex);
-    if (index >= pagesList.length) {}
-  }
 }

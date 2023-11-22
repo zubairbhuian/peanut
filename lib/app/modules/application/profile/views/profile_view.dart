@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:peanut/app/core/services/base/preferences.dart';
 import 'package:peanut/app/core/services/controller/base_controller.dart';
 import 'package:peanut/app/widgets/custom_btn.dart';
+import 'package:peanut/app/widgets/popup_dialogs.dart';
 
 import '../controllers/profile_controller.dart';
 
@@ -20,7 +21,8 @@ class ProfileView extends GetView<ProfileController> {
         child: PrimaryBtn(
           child: const Text("LogOut"),
           onPressed: () {
-            BaseController.to.logout();
+            PopupDialog.logOutDialog();
+            
           },
         ),
       ),

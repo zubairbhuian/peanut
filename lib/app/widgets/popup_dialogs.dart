@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:peanut/app/core/services/controller/base_controller.dart';
 import 'package:peanut/app/core/utils/int_extensions.dart';
 import 'package:peanut/app/widgets/custom_btn.dart';
 
@@ -98,7 +99,6 @@ class PopupDialog {
                   child: Material(
                     elevation: 2,
                     // dialog color
-
                     shadowColor: Colors.black12,
                     // backgraund color
                     color: kWhite,
@@ -120,26 +120,32 @@ class PopupDialog {
                           // title
                           Text(
                             "Are you sure you want to logout?",
-                            style: kTitleMedium,
+                            style: kTitleLarge,
                             textAlign: TextAlign.center,
                           ),
                           24.height,
                           // btns
-                          PrimaryBtn(
-                            width: double.infinity,
-                            child: const Text("Yes"),
-                            onPressed: () {
-                              Get.offAllNamed(Routes.LOGIN);
-                            },
-                          ),
-                          16.height,
-                          PrimaryBtn(
-                            width: double.infinity,
-                            color: const Color(0xffD2D6EA),
-                            onPressed: () {
-                              Get.back();
-                            },
-                            child: const Text("No"),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: PrimaryBtn(
+                                  color: kDangerColor,
+                                  child: const Text("Yes"),
+                                  onPressed: () {
+                                    BaseController.to.logout();
+                                  },
+                                ),
+                              ),
+                              16.width,
+                              Expanded(
+                                child: PrimaryBtn(
+                                  onPressed: () {
+                                    Get.back();
+                                  },
+                                  child: const Text("No"),
+                                ),
+                              )
+                            ],
                           )
                         ],
                       ),

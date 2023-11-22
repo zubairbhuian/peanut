@@ -17,8 +17,8 @@ class DioInterceptor extends Interceptor {
     // }
      
     /// set options
-    // options.validateStatus = (_) => true;
-    // options.receiveDataWhenStatusError = true;
+    options.validateStatus = (_) => true;
+    options.receiveDataWhenStatusError = true;
     options.responseType = ResponseType.json;
 
     if (kDebugMode) {
@@ -60,10 +60,4 @@ class DioInterceptor extends Interceptor {
     }
     super.onError(err, handler);
   }
-}
-
-Dio dio = Dio();
-
-demo() {
-  dio.post("",data: {});
 }

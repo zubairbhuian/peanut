@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:peanut/app/core/config/theme/style.dart';
+import 'package:peanut/app/core/services/base/api_service.dart';
 import 'package:peanut/app/core/services/base/preferences.dart';
 import 'package:peanut/app/core/services/controller/base_controller.dart';
 import 'package:peanut/app/core/services/urls.dart';
@@ -26,18 +28,22 @@ class LoginController extends GetxController {
 
     if (formKey.currentState!.validate()) {
       try {
+       // Dio dio = Dio();
+
+        // var res = await dio.post(Urls.login, data: data,options: Options(receiveDataWhenStatusError:false));
+        // kLogger.e(res.data);
         PopupDialog.showLoadingDialog();
         BaseModel res = await BaseController.to.apiService
             .makePostRequest(Urls.login, data);
+        PopupDialog.closeLoadingDialog();
+        kLogger.e("res.data");
+        kLogger.e(res.data);
         if (res.statusCode == 200) {
-          Preferences.token = res.data["token"];
           Get.offAllNamed(Routes.APPLICATION);
-          PopupDialog.closeLoadingDialog();
         } else if (res.statusCode == 401) {
-          kLogger.i("message");
-          PopupDialog.closeLoadingDialog();
         }
       } catch (err) {
+        kLogger.i("Login Err :$err");
         kLogger.e("Login Err :$err");
         PopupDialog.closeLoadingDialog();
       }

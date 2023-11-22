@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:peanut/app/core/middleware/router_welcome.dart';
 
 import '../modules/application/bindings/application_binding.dart';
 import '../modules/application/home/bindings/home_binding.dart';
@@ -25,6 +26,9 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => const LoginView(),
       binding: LoginBinding(),
+      middlewares: [
+        RouteWlcomMiddleware()
+      ]
     ),
     GetPage(
       name: _Paths.APPLICATION,

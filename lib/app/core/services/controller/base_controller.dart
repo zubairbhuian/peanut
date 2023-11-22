@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:peanut/app/routes/app_pages.dart';
 
 import '../base/api_service.dart';
 import '../base/preferences.dart';
@@ -20,6 +21,6 @@ class BaseController extends GetxController {
 
   void logout() {
     Preferences.clear();
-    // Get.offAllNamed(AppRoutes.login);
+    Get.offAllNamed(Routes.LOGIN);
   }
 }

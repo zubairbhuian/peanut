@@ -105,7 +105,7 @@ class CustomTextField extends StatelessWidget {
             // ********** onTap ********
             onTap: onTap,
             // ********** style ********
-            style: style ?? kTitleMedium,
+            style: style ?? kTitleSmall,
             // ********** controller ********
             onEditingComplete: onEditingComplete,
             // ********** keyboardType ********
@@ -119,7 +119,7 @@ class CustomTextField extends StatelessWidget {
               errorMaxLines: 5,
               // ********** padding ********
               contentPadding: padding ??
-                  EdgeInsets.symmetric(vertical: 24.h, horizontal: 24.w),
+                  const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
               // ********** prefixIcon ********
               prefixIcon: prefixIcon,
               // ********** suffixIcon ********

@@ -22,7 +22,8 @@ class LoginForm extends GetView<LoginController> {
    
         CustomTextField(
           controller: controller.loginController,
-          label: const Text("Login"),
+          label: const Text("User Id"),
+          keyboardType: TextInputType.number,
            validator: (value) {
               if (value == null || value.isEmpty) {
                 return 'Enter your valid Id';

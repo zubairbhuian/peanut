@@ -44,7 +44,11 @@ class LoginView extends GetView<LoginController> {
             child: Center(
                 child: PrimaryBtn(
               width: double.infinity,
-              onPressed:controller.onLogin,
+              onPressed: () {
+                if (controller.formKey.currentState!.validate()) {
+                  controller.onLogin();
+                }
+              },
               child: const Text("Login"),
             )),
           )

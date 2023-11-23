@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
-import 'package:peanut/app/core/config/theme/style.dart';
 import 'package:peanut/app/core/services/base/preferences.dart';
 
 class DioInterceptor extends Interceptor {

@@ -11,18 +11,9 @@ class HomeController extends GetxController {
   List<TradeModel> tradeList = [];
 
   getTradeList() async {
-    // tradeList = await TradeRepo.getTrades(
-    //     id: Preferences.userId, token: Preferences.token);
-    // kLogger.i(tradeList[0].currentPrice);
-
-    var res = await BaseController.to.apiService.makePostRequest(
-        'https://peanut.ifxdb.com/api/ClientCabinetBasic/GetOpenTrades',
-        {"login": Preferences.userId, "token": Preferences.token});
-
-    kLogger.i("message");
-    kLogger.i("message");
-    kLogger.i("message");
-    kLogger.i(res.data);
+    tradeList = await TradeRepo.getTrades(
+        id: Preferences.userId, token: Preferences.token);
+    kLogger.e(tradeList.length);
   }
 
   @override

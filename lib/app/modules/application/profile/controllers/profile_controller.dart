@@ -18,12 +18,13 @@ class ProfileController extends GetxController {
     // get user info
     userData = await UserInfoRepo.getUserInfo(
         id: Preferences.userId, token: Preferences.token);
+    update();
     // get user phone
-    // phoneNumber = await UserInfoRepo.getLastFourNumbersPhone(
-    //     id: Preferences.userId, token: Preferences.token);
+    phoneNumber = await UserInfoRepo.getLastFourNumbersPhone(
+        id: Preferences.userId, token: Preferences.token);
 
     update();
-    kLogger.e(phoneNumber);
+
   }
 
   @override

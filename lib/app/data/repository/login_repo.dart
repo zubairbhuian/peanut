@@ -1,4 +1,5 @@
 import 'package:peanut/app/core/config/theme/style.dart';
+import 'package:peanut/app/core/services/base/preferences.dart';
 import 'package:peanut/app/core/services/controller/base_controller.dart';
 import 'package:peanut/app/core/services/urls.dart';
 import 'package:peanut/app/widgets/popup_dialogs.dart';
@@ -18,6 +19,12 @@ class LoginRepo {
       // **** hide loading ****
       PopupDialog.closeLoadingDialog();
       if (res.statusCode == 200) {
+        // **** store user data *****
+        final token = res.data['token'];
+        if (token != null && token is String) {
+          Preferences.token = token;
+          Preferences.userId = id;
+        }
         return true;
       } else if (res.statusCode == 401) {
         PopupDialog.showErrorMessage("invalid user id or password");

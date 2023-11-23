@@ -10,7 +10,6 @@ import 'app/core/config/theme/color.dart';
 import 'app/core/config/theme/fonts.dart';
 import 'app/core/config/theme/theme.dart';
 import 'app/core/services/base/api_service.dart';
-import 'app/core/services/base/dio_interceptor.dart';
 import 'app/core/services/base/preferences.dart';
 import 'app/core/services/bindings/base_binding.dart';
 import 'app/routes/app_pages.dart';
@@ -36,18 +35,7 @@ Future<void> main() async {
 
   /// Initialize the dio
   final dio = Dio();
-
-  //! Disable SSL certificate validation (for testing purposes only)
-  // ignore: deprecated_member_use
-  // (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-  //     (HttpClient dioClient) {
-  //   dioClient.badCertificateCallback =
-  //       ((X509Certificate cert, String host, int port) => true);
-  //   return dioClient;
-  // };
-  // Initialize the dio instance
-  dio.interceptors.add(DioInterceptor());
-
+  
   /// Add the dio instance to the api service
   final apiService = ApiService(dio: dio);
 

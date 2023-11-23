@@ -13,17 +13,14 @@ class TradeRepo {
       // **** api call ****
       BaseModel res = await BaseController.to.apiService
           .makePostRequest(Urls.getOpenTrades, data);
-      kLogger.e("res.data");
-      kLogger.e("res.data");
-      kLogger.e(res.data);
-      // if (res.statusCode == 200 && res.data.length > 0) {
-      //   var resData = (res.data as List)
-      //       .map((item) => TradeModel.fromJson(item))
-      //       .toList();
-      //   return resData;
-      // } else if (res.statusCode == 500) {
-      //   BaseController.to.logout();
-      // }
+      if (res.statusCode == 200 && res.data.length > 0) {
+        var resData = (res.data as List)
+            .map((item) => TradeModel.fromJson(item))
+            .toList();
+        return resData;
+      } else if (res.statusCode == 500) {
+        BaseController.to.logout();
+      }
     } catch (err) {
       kLogger.i(" getUserInfo :$err");
     }

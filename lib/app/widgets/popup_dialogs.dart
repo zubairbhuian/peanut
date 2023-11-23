@@ -129,7 +129,7 @@ class PopupDialog {
                             children: [
                               Expanded(
                                 child: PrimaryBtn(
-                                  color: kDangerColor,
+                                  color: kRed,
                                   child: const Text("Yes"),
                                   onPressed: () {
                                     BaseController.to.logout();

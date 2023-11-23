@@ -9,7 +9,6 @@ import 'package:peanut/app/widgets/custom_btn.dart';
 
 import '../core/config/theme/color.dart';
 import '../core/config/theme/style.dart';
-import '../routes/app_pages.dart';
 
 class PopupDialog {
   // AlertDialog
@@ -51,8 +50,8 @@ class PopupDialog {
             Center(
               child: SizedBox(
                 // dialog width
-                width: 70.w,
-                height: 70.w,
+                width: 80.w,
+                height: 80.w,
                 child: Material(
                   elevation: 2,
                   // dialog color
@@ -62,9 +61,9 @@ class PopupDialog {
                   // border radius
                   borderRadius: BorderRadius.circular(8.r),
                   // main body
-                  child: SpinKitFadingCircle(
+                  child: SpinKitWave(
                     color: kPrimaryColor, // You can customize the color
-                    size: 42.sp, // You can customize the size
+                    size: 25.sp, // You can customize the size
                   ),
                 ),
               ),

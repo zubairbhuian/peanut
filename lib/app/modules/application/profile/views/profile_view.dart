@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:peanut/app/core/config/theme/color.dart';
-import 'package:peanut/app/core/services/base/preferences.dart';
-import 'package:peanut/app/core/services/controller/base_controller.dart';
 import 'package:peanut/app/core/utils/int_extensions.dart';
 import 'package:peanut/app/modules/application/profile/widgets/profile_row.dart';
 import 'package:peanut/app/widgets/app_indecator.dart';
@@ -20,8 +18,9 @@ class ProfileView extends GetView<ProfileController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(
-        title: Text('ProfileView'),
+        title: Text('Profile'),
         centerTitle: true,
+        isBackBtnShow: false,
       ),
       body: GetBuilder<ProfileController>(builder: (controller) {
         var data = controller.userData;

@@ -5,12 +5,10 @@ import 'package:peanut/app/modules/application/home/views/home_view.dart';
 import 'package:peanut/app/modules/application/profile/views/profile_view.dart';
 import 'package:peanut/app/modules/application/profit/views/profit_view.dart';
 
-import '../../../core/config/theme/style.dart';
-
 class ApplicationController extends GetxController {
   static ApplicationController get to => Get.find();
 
-  int pageIndex = 2;
+  int pageIndex = 0;
   final PageController pageController = PageController();
   final List<Widget> pagesList = [
     const HomeView(),
